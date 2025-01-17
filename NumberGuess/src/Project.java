@@ -13,17 +13,17 @@ public class Project {
         for(int playAgain = 1; playAgain == 1; playAgain++){
             System.out.println("Welcome! Ready to guess a secret number? You get 3 tries :O");
             System.out.println("Guess a number 1-10");
+            target =(int)(Math.random()*10) +1;
+            winner = 0;
+            guessCount = 0;
             int guess = scanner.nextInt();
            
             while(guessCount < 2){
-                
+
                 if(guess > 10 || guess < 1 ){
                     System.out.println("The number you entered (" + guess + ") is not a valid guess. Please guess within the range of 1-10.");  //ensures user guesses within 1-10 and if they do not guess within the range, their guess doesn't count as one of the 3 guesses
                     guess = scanner.nextInt();
-                }
-                
-            
-                if(guess == target){
+                } else if(guess == target){
                     winner = 1;
                     guessCount = 3; //ends game
                 } else if(guess > target){
